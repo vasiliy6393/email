@@ -1,0 +1,3 @@
+ls $PATTERN* | while read file; do
+    cat "$file" | openssl enc -d -aes256 -pbkdf2 -nosalt -iter 1000000 -a -pass pass:$PASS;
+done > ./email.iso
